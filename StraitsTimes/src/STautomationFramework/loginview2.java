@@ -17,7 +17,7 @@ public class loginview2 {
 
   @Before
   public void setUp() throws Exception {
-	System.setProperty("webdriver.gecko.driver", "path/geckodriver.exe");
+	System.setProperty("webdriver.gecko.driver", "path /geckodriver.exe");
 	WebDriver driver = new FirefoxDriver();
     driver = new FirefoxDriver();
     baseUrl = "http://www.straitstimes.com";
