@@ -1,4 +1,4 @@
-package com.example.tests;
+package STautomationFramework;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Loginview2 {
+public class loginview2 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -17,10 +17,10 @@ public class Loginview2 {
 
   @Before
   public void setUp() throws Exception {
-	System.setProperty("webdriver.firefox.marionette", "./geckodriver.exe");
+	System.setProperty("webdriver.gecko.driver", "path /geckodriver.exe");
 	WebDriver driver = new FirefoxDriver();
     driver = new FirefoxDriver();
-    baseUrl = "http://www.straitstimes.com/";
+    baseUrl = "http://www.straitstimes.com";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -34,11 +34,14 @@ public class Loginview2 {
     driver.findElement(By.id("j_password")).clear();
     driver.findElement(By.id("j_password")).sendKeys("Temp1234");
     driver.findElement(By.cssSelector("button.btn")).click();
+    System.out.println("Successfully logged in.");
     driver.findElement(By.cssSelector("a.block-link")).click();
     try {
       assertTrue(isElementPresent(By.cssSelector("img.img-responsive")));
+      System.out.println("Image found. ");
     } catch (Error e) {
       verificationErrors.append(e.toString());
+      System.out.println("No image found.");
     }
     driver.findElement(By.cssSelector("button.navbar-toggle-user")).click();
     driver.findElement(By.linkText("Logout")).click();
